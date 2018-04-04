@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Piimega_CheckoutFinland>
+            <active>true</active>
+            <codePool>community</codePool>
+            <platform>ce</platform>
+            <depends>
+                <Mage_Payment />
+            </depends>
+            <version>1.0.0</version>
+        </Piimega_CheckoutFinland>
+    </modules>
+</config>

@@ -1,0 +1,85 @@
+.C1 {
+    width: 180px;
+    height: 120px;
+    border: 1pt solid #a0a0a0;
+    display: block;
+    float: left;
+    margin: 7px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    clear: none;
+    padding: 0;
+}
+
+.C1:hover {
+    background-color: #f0f0f0;
+    border-color: black;
+}
+
+.C1 form {
+    width: 180px;
+    height: 120px;
+}
+
+.C1 form span {
+    display: table-cell;
+    vertical-align: middle;
+    height: 92px;
+    width: 180px;
+}
+
+.C1 form span input {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 1pt solid #f2f2f2;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: white;
+}
+
+.C1:hover form span input {
+    border: 1pt solid black;
+}
+
+.C1 div {
+    text-align: center;
+    font-family: arial, sans-serif;
+    font-size: 8pt;
+}
+
+.C2-logo, .C2-description{
+    display: inline-block;
+    line-height: 38px;
+    float:left;
+}
+.C2-logo{
+    background: url('../images/logo.png') no-repeat center center;
+    background-size: 100% 100%;
+    height:38px;
+    width:38px;
+    margin-right:15px;
+}
+
+.C1-container{
+    margin-bottom: 20px;
+    zoom:1;
+}
+
+.C1-container:before,
+.C1-container:after {
+    content:"";
+    display:table;
+}
+
+.C1-container:after {
+    clear:both;
+}
+
+.C1-actions{
+    width:100%;
+    clear:both;
+}

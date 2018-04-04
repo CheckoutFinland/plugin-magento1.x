@@ -1,0 +1,12 @@
+<?php
+
+$title = $this->getMethod()->getTitle();
+$additional = $this->getSavedPaymentMethodDescription();
+if($additional){
+    $title .= ': ' .$additional;
+}
+
+?>
+
+<?php echo Mage::helper('piimega_checkoutfinland')->__('Payment method: %s', $this->htmlEscape($title)) ?><br/>
+

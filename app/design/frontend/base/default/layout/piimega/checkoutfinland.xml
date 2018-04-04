@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addCss"><stylesheet>piimega/checkoutfinland/css/styles.css</stylesheet></action>
+        </reference>
+    </checkout_onepage_index>
+    <checkoutfinland_checkoutfinland_redirect>
+        <reference name="head">
+            <action method="addCss"><stylesheet>piimega/checkoutfinland/css/styles.css</stylesheet></action>
+        </reference>
+    </checkoutfinland_checkoutfinland_redirect>
+</layout>

@@ -1,0 +1,27 @@
+<?php $data = $this->getData('payment_info'); ?>
+<?php $banks = (isset($data['payments']['payment']['banks']) ? $data['payments']['payment']['banks'] : false) ?>
+
+<div class="checkoutfinland-wrap">
+    <div class="C1-container">
+        <?php if(!empty($banks)): ?>
+            <?php foreach($banks as $bank): ?>
+                <?php $attributes = $bank['@attributes'] ?>
+                <?php unset($bank['@attributes']) ?>
+                <div class='C1'>
+                    <form action='<?php echo $attributes['url'] ?>' method='post'>
+                        <?php foreach($bank as $key => $value):?>
+                            <input type='hidden' name='<?php echo htmlspecialchars($key) ?>' value='<?php echo htmlspecialchars(!empty($value) ? $value : '') ?>'>
+                        <?php endforeach;?>
+                        <span><input type='image' src='<?php echo $attributes['icon'] ?>'></span>
+                        <div><?php echo $attributes['name'];?></div>
+                    </form>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p><?php echo $this->__('There are no payment methods available at the moment'); ?></p>
+        <?php endif; ?>
+    </div>
+    <div class="C1-actions">
+        <a href="<?php echo Mage::getUrl('checkoutfinland/checkoutfinland/cancel') ?>"><?php echo Mage::helper('piimega_checkoutfinland')->__('Cancel payment') ?></a>
+    </div>
+</div>

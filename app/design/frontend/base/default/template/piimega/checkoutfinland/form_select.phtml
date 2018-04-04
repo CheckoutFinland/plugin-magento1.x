@@ -1,0 +1,47 @@
+<?php
+$name = $this->getPreselectMethodParam();
+$title = $this->getPreselectMethodTitleParam();
+$imgId = $name . '_img';
+?>
+<fieldset class="form-list">
+    <?php $_code=$this->getMethodCode() ?>
+    <ul id="payment_form_<?php echo $_code ?>" style="display:none">
+        <li>
+            <select id="<?php echo $name ?>" class="validate-select" name="payment[<?php echo $name ?>]">
+                <option value="" ><?php echo Mage::helper('piimega_checkoutfinland')->__("Choose payment method..."); ?></option>
+                <?php foreach ($this->getPaymentMethods() as $method): ?>
+                    <option value="<?php echo $method['code'] ?>"><?php echo $method['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <img id="<?php echo $imgId ?>" style="display: none; padding: 7px 0;" />
+            <input type="hidden" name="payment[<?php echo $title; ?>]" id="<?php echo $title; ?>" />
+        </li>
+    </ul>
+</fieldset>
+<script type="text/javascript">
+    var CheckoutFinland = function() {
+        this.select = document.getElementById('<?php echo $name ?>');
+        this.titleInput = document.getElementById('<?php echo $title ?>');
+        this.img = document.getElementById('<?php echo $imgId ?>');
+        this.methods = <?php echo json_encode($this->getPaymentMethods()) ?>;
+        this.initEventHandlers();
+    };
+    CheckoutFinland.prototype.initEventHandlers = function() {
+        var self = this;
+        this.select.on('change', function(e) {
+            var bank = this.value;
+            if (bank !== undefined && bank !== null) {
+                for (var i=0; i<self.methods.length; i++) {
+                    var method = self.methods[i];
+                    if (method.code === bank) {
+                        self.img.src = method.icon;
+                        self.img.style.display = 'block';
+                        self.titleInput.value = method.name;
+                        break;
+                    }
+                }
+            }
+        });
+    };
+    var cof = new CheckoutFinland();
+</script>
